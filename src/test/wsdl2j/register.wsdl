@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://register.ws.d2d.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://schemas.xmlsoap.org/soap/" name="IUserRegistration"
+                  targetNamespace="http://register.ws.d2d.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://register.ws.d2d.com/" elementFormDefault="unqualified" targetNamespace="http://register.ws.d2d.com/" version="1.0">
+
+  <xs:element name="registerUser" type="tns:registerUser"/>
+
+  <xs:element name="registerUserResponse" type="tns:registerUserResponse"/>
+
+  <xs:complexType name="registerUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registerUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="registerUserResponse">
+    <wsdl:part element="tns:registerUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerUser">
+    <wsdl:part element="tns:registerUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IUserRegistration">
+    <wsdl:operation name="registerUser">
+      <wsdl:input message="tns:registerUser" name="registerUser">
+    </wsdl:input>
+      <wsdl:output message="tns:registerUserResponse" name="registerUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IUserRegistrationSoapBinding" type="tns:IUserRegistration">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registerUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IUserRegistration">
+    <wsdl:port binding="tns:IUserRegistrationSoapBinding" name="UserRegistrationPort">
+      <soap:address location="http://localhost:8080/Register"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
