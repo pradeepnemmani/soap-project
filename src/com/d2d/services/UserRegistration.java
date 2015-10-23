@@ -13,7 +13,7 @@ import java.util.Random;
 
 /**
  * Package Name: com.d2d.ws.registerUser
- * Author: chandrav
+ * Author: pradeep N
  */
 @WebService(endpointInterface = "com.d2d.services.IUserRegistration", serviceName = "RegisterUserService", portName = "RegisterUserServicePort")
 public class UserRegistration implements IUserRegistration
