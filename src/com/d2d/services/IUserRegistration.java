@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Package Name: com.d2d.ws.registerUser
- * Author: chandrav
+ * Author: pradeepN
  */
 @WebService( name = "RegisterUserInterface" )
 @SOAPBinding( style = SOAPBinding.Style.DOCUMENT, parameterStyle = SOAPBinding.ParameterStyle.BARE, use = SOAPBinding.Use.LITERAL )
